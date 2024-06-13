@@ -40,7 +40,7 @@
             }
             previewFile = function() {
                 var fileName = $("#staticfile").text();
-                window.open('previewQuery?path=' + fileName);
+                window.open('previewQuery?path=' + encodeURIComponent(fileName));
             }
             loadFile = function() {
                 var params = pageParams();
@@ -71,7 +71,7 @@
                 externalEditor.height(height);
 
                 // load the editor
-                externalEditor.attr('src', ExternalEditor.EXT_EDITOR + '?path=' + path + '&theme=ace/theme/eclipse&editorOnly=true');
+                externalEditor.attr('src', ExternalEditor.EXT_EDITOR + '?path=' + encodeURIComponent(path) + '&theme=ace/theme/eclipse&editorOnly=true');
             }
             /*
              *  pageParams: get the request variables passed in the url
@@ -88,7 +88,7 @@
                     args = url.slice(index + 1).split('&');
                     for ( i = 0; i < args.length; i++) {
                         pair = args[i].split('=');
-                        output[pair[0]] = unescape(pair[1]);
+                        output[pair[0]] = decodeURIComponent(pair[1].replaceAll('+', ' '));
                     }
                     return output;
                 }

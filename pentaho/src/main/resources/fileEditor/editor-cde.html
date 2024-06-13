@@ -79,7 +79,7 @@
 					args = url.slice(index + 1).split('&');
 					for ( i = 0; i < args.length; i++) {
 						pair = args[i].split('=');
-						output[pair[0]] = unescape(pair[1]);
+						output[pair[0]] = decodeURIComponent(pair[1].replaceAll('+', ' '));
 					}
 					return output;
 				}

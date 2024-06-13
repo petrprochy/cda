@@ -75,6 +75,7 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.ws.rs.core.StreamingOutput;
 import javax.ws.rs.core.UriInfo;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -471,12 +472,14 @@ public class CdaUtils {
    * called by content generator
    */
   public void editFile( String path, @Context HttpServletResponse servletResponse ) throws IOException {
+    path = URLEncoder.encode( path, servletResponse.getCharacterEncoding() );
     final String editFileUrl = PluginEnvironment.env().getUrlProvider().getPluginBaseUrl() + "editFile?path=" + path;
 
     servletResponse.sendRedirect( editFileUrl );
   }
 
   public void previewQuery( String path, @Context HttpServletResponse servletResponse ) throws IOException {
+    path = URLEncoder.encode( path, servletResponse.getCharacterEncoding() );
     final String previewQueryUrl = PluginEnvironment.env().getUrlProvider()
             .getPluginBaseUrl() + "previewQuery?path=" + path;
 
