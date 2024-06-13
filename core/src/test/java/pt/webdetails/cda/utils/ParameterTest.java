@@ -13,19 +13,20 @@
 
 package pt.webdetails.cda.utils;
 
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
 import org.pentaho.reporting.libraries.base.util.CSVTokenizer;
-
 import pt.webdetails.cda.dataaccess.Parameter;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.Time;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 
 public class ParameterTest {
@@ -222,7 +223,7 @@ public class ParameterTest {
     Parameter p = new ParameterForTest( "TestParam", "DateArray", "1412202935142;1414798535142", null, null );
     Object value = p.getValue();
     Assert.assertTrue( value.getClass().isAssignableFrom( Date[].class ) );
-    Calendar cld = Calendar.getInstance();
+    Calendar cld = Calendar.getInstance(TimeZone.getTimeZone( "GMT" ));
     cld.setTime( ( (Date[]) value )[ 0 ] );
     Assert.assertEquals( 2014, cld.get( Calendar.YEAR ) );
     Assert.assertEquals( 9, cld.get( Calendar.MONTH ) );
@@ -232,7 +233,7 @@ public class ParameterTest {
   @Test
   public void testDateArrayParameterSetValueGetStringValue() throws Exception {
     Parameter p = new ParameterForTest( "TestParam", "DateArray", null, null, null );
-    Calendar cld = Calendar.getInstance();
+    Calendar cld = Calendar.getInstance( TimeZone.getTimeZone( "GMT" ) );
     cld.set( 2014, Calendar.OCTOBER, 1 );
     Date d1 = cld.getTime();
     cld.set( 2014, Calendar.OCTOBER, 31 );
@@ -248,7 +249,7 @@ public class ParameterTest {
     p.setStringValue( "1412202935142;1414798535142" );
     Object value = p.getValue();
     Assert.assertTrue( value.getClass().isAssignableFrom( Date[].class ) );
-    Calendar cld = Calendar.getInstance();
+    Calendar cld = Calendar.getInstance( TimeZone.getTimeZone( "GMT" ) );
     cld.setTime( ( (Date[]) value )[ 1 ] );
     Assert.assertEquals( 2014, cld.get( Calendar.YEAR ) );
     Assert.assertEquals( Calendar.OCTOBER, cld.get( Calendar.MONTH ) );
@@ -263,7 +264,7 @@ public class ParameterTest {
     p.setValue( new String[] { "1412202935142", "1414798535142" } );
     Object value = p.getValue();
     Assert.assertTrue( value.getClass().isAssignableFrom( Date[].class ) );
-    Calendar cld = Calendar.getInstance();
+    Calendar cld = Calendar.getInstance( TimeZone.getTimeZone( "GMT" ) );
     cld.setTime( ( (Date[]) value )[ 1 ] );
     Assert.assertEquals( 2014, cld.get( Calendar.YEAR ) );
     Assert.assertEquals( 9, cld.get( Calendar.MONTH ) );
