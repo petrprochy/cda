@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.pentaho</groupId>
@@ -10,6 +9,7 @@
 
   <groupId>pentaho</groupId>
   <artifactId>cda-plugin</artifactId>
+  <version>9.4.0.0-343-1-SNAPSHOT</version>
 
   <packaging>pom</packaging>
   <licenses>
@@ -26,9 +26,8 @@
     <module>proxy</module>
   </modules>
   <scm>
-    <connection>scm:git:git@github.com:webdetails/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:git@github.com:webdetails/${project.artifactId}.git</developerConnection>
-    <url>scm:git:git@github.com:webdetails/${project.artifactId}.git</url>
+    <developerConnection>scm:git:https://github.com/petrprochy/cda.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <site>
@@ -41,8 +40,8 @@
     <marketplace.metadata.sequential.build.id>${sequential.build.id}</marketplace.metadata.sequential.build.id>
     <sequential.build.id>manual-${maven.build.timestamp}</sequential.build.id>
     <pentaho-metadata.version>9.4.0.0-343</pentaho-metadata.version>
-    <marketplace.metadata.package_url></marketplace.metadata.package_url>
-    <marketplace.metadata.description></marketplace.metadata.description>
+    <marketplace.metadata.package_url />
+    <marketplace.metadata.description />
     <project.stage>master</project.stage>
     <dependency.mockito-all.revision>1.9.5</dependency.mockito-all.revision>
     <marketplace.metadata.min_parent_version>1.0</marketplace.metadata.min_parent_version>
@@ -79,12 +78,12 @@
       <dependency>
         <groupId>pentaho</groupId>
         <artifactId>cpf-core</artifactId>
-        <version>${project.version}</version>
+        <version>${pentaho-cpf-plugin.version}</version>
       </dependency>
       <dependency>
         <groupId>pentaho</groupId>
         <artifactId>cpf-pentaho</artifactId>
-        <version>${project.version}</version>
+        <version>${pentaho-cpf-plugin.version}</version>
         <exclusions>
           <exclusion>
             <artifactId>*</artifactId>
