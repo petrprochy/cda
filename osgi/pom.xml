@@ -5,7 +5,7 @@
   <parent>
     <artifactId>cda-plugin</artifactId>
     <groupId>pentaho</groupId>
-    <version>9.4.0.0-343-1-SNAPSHOT</version>
+    <version>9.4.0.0-343-1</version>
   </parent>
 
   <groupId>org.pentaho.ctools</groupId>
