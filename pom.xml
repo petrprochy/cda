@@ -9,7 +9,7 @@
 
   <groupId>pentaho</groupId>
   <artifactId>cda-plugin</artifactId>
-  <version>9.4.0.0-343-1</version>
+  <version>9.4.0.0-343-2-SNAPSHOT</version>
 
   <packaging>pom</packaging>
   <licenses>
@@ -27,7 +27,7 @@
   </modules>
   <scm>
     <developerConnection>scm:git:https://github.com/petrprochy/cda.git</developerConnection>
-    <tag>cda-plugin-9.4.0.0-343-1</tag>
+    <tag>HEAD</tag>
   </scm>
   <properties>
     <marketplace.metadata.sequential.build.id>${sequential.build.id}</marketplace.metadata.sequential.build.id>
