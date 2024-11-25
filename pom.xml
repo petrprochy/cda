@@ -29,13 +29,6 @@
     <developerConnection>scm:git:https://github.com/petrprochy/cda.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-  <distributionManagement>
-    <site>
-      <id>pentaho.public.snapshot.repo</id>
-      <name>${project.artifactId}-${project.version}</name>
-      <url>dav:${site.publish.url}/${project.groupId}/cda-plugin-${project.version}</url>
-    </site>
-  </distributionManagement>
   <properties>
     <marketplace.metadata.sequential.build.id>${sequential.build.id}</marketplace.metadata.sequential.build.id>
     <sequential.build.id>manual-${maven.build.timestamp}</sequential.build.id>
