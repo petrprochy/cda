@@ -12,4 +12,7 @@
 
 	<!-- A comma separated list of allowed domains for a cross-origin resource sharing-->
 	<cross-domain-resources-whitelist><!--intentionally left blank --></cross-domain-resources-whitelist>
+
+	<!-- Type of export in preview mode -->
+	<export_type>xls</export_type>
 </settings>

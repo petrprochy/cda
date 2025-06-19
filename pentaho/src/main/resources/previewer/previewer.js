@@ -24,6 +24,7 @@ var PreviewerBackend = {
   LOCALE_locale: 'browser',
   PATH_locales: null,
   LOCALE_dataTables: null,
+  EXPORT_type: 'xls',
   Path: null,
   /**/
   listQueries: function(params, callback) {
@@ -229,14 +230,15 @@ showQueryUrl = function(dataAccessId) {
   queryUrlDialogInput.select();
 };
 
-exportFunc = function(dataAccessId) {
+exportFunc = function(dataAccessId, outputType) {
+  outputType = outputType || 'xls';
   updateLastQuery(dataAccessId);
 
   var params = getParams();
   var queryDefinition = $.extend({
     dataAccessId: dataAccessId,
     path: getFileName(),
-    outputType: 'xls',
+    outputType: outputType,
     wrapItUp: true
   }, params);
 

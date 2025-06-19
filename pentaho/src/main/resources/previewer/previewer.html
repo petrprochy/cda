@@ -43,7 +43,7 @@
           language: (lang == 'browser' ? jQuery.i18n.browserLang() : lang),
           callback: function() {
 
-            $('#export').html(jQuery.i18n.prop('label.doExport'));
+            $('#export').html(jQuery.i18n.prop('label.doExport', [PreviewerBackend.EXPORT_type]));
             $('#cachethis').html(jQuery.i18n.prop('label.cachethis'));
             $('#pleaseselect').html(jQuery.i18n.prop('label.selectDataAccessID'));
           }
@@ -147,7 +147,7 @@
             </button>
           </div>
           <div style="display: none;" id="exportButton">
-            <button class="cdaButton" id="export" onclick="exportFunc(lastQuery)">
+            <button class="cdaButton" id="export" onclick="exportFunc(lastQuery, PreviewerBackend.EXPORT_type)">
               Export as .xls
             </button>
           </div>

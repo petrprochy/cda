@@ -22,6 +22,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import pt.webdetails.cda.CdaEngine;
+import pt.webdetails.cpf.PluginEnvironment;
 import pt.webdetails.cpf.Util;
 import pt.webdetails.cpf.context.api.IUrlProvider;
 import pt.webdetails.cpf.packager.origin.StaticSystemOrigin;
@@ -71,6 +72,8 @@ public class Previewer extends ProcessedHtmlPage {
     pairs.add( new Pair<String, String>( UI_BACKEND_PREFIX + "Path", quote( cdaPath ) ) );
     pairs.add( new Pair<String, String>( UI_BACKEND_PREFIX + "LOCALE_locale", quote( locale.toString() ) ) );
     addDataTablesLocalization( pairs, UI_BACKEND_PREFIX + "LOCALE_dataTables", locale );
+    pairs.add( new Pair<>( UI_BACKEND_PREFIX + "EXPORT_type",
+      quote( PluginEnvironment.env().getPluginSettings().getTagValue( "export_type" ).get( 0 ) ) ) );
     return pairs;
   }
 
